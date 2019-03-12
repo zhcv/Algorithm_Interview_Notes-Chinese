@@ -1,8 +1,10 @@
 专题-数据结构
 ===
 
-- 数据结构相关基本是**现场面试**中出现频率最高的问题。因为现场面试的时间限制，更难的问题需要大量的思考时间，所以一般只要求需要阐述思路；而数据结构相关的问题，因为有很强的先验知识，通常要求**手写代码**。
-- 本专题只收录**纯数据结构问题**，不包括数据结构的应用。
+- 数据结构相关基本是**现场面试**中出现频率最高的问题。
+    - 因为现场面试的时间限制，更难的问题需要大量的思考时间，所以一般只要求需要阐述思路（比如动态规划）；
+    - 而**数据结构**相关的问题，因为有很强的先验知识，通常要求**手写代码**。
+- 本专题只收录**基础数据结构相关问题**，不包括高级数据结构及数据结构的设计，比如线段树或者 LRU 缓存，这些问题可以参考[数据结构_Advanced](./专题-A-数据结构_Advanced)。
 
 Index
 ---
@@ -14,7 +16,7 @@ Index
         - [二叉树最大宽度（LeetCode）](#二叉树最大宽度leetcode)
     - [二叉树中的最长路径](#二叉树中的最长路径)
     - [判断平衡二叉树 TODO](#判断平衡二叉树-todo)
-    - [判断树 B 是否为树 A 的子结构 TODO](#判断树-b-是否为树-a-的子结构-todo)
+    - [判断树 B 是否为树 A 的子结构](#判断树-b-是否为树-a-的子结构)
     - [利用前序和中序重建二叉树](#利用前序和中序重建二叉树)
     - [二叉树的序列化与反序列化](#二叉树的序列化与反序列化)
     - [最近公共祖先](#最近公共祖先)
@@ -23,12 +25,16 @@ Index
         - [如果只是普通的二叉树](#如果只是普通的二叉树)
     - [获取节点的路径](#获取节点的路径)
 - [链表](#链表)
+    - [旋转链表（Rotate List）](#旋转链表rotate-list)
     - [反转链表](#反转链表)
     - [合并排序链表](#合并排序链表)
     - [两个链表的第一个公共节点](#两个链表的第一个公共节点)
     - [链表排序](#链表排序)
-        - [插入排序 TODO](#插入排序-todo)
         - [链表快排](#链表快排)
+        - [链表归并](#链表归并)
+        - [链表插入排序](#链表插入排序)
+        - [链表选择排序](#链表选择排序)
+        - [链表冒泡排序](#链表冒泡排序)
 - [二维数组](#二维数组)
     - [二分查找](#二分查找)
         - [搜索二维矩阵 1](#搜索二维矩阵-1)
@@ -43,9 +49,9 @@ Index
 
 <!-- /TOC -->
 
-## 二叉树
+# 二叉树
 
-### 二叉树的深度
+## 二叉树的深度
 > [二叉树的深度](https://www.nowcoder.com/practice/435fb86331474282a3499955f0a41e8b?tpId=13&tqId=11191&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) - 牛客
 
 **C++**
@@ -60,7 +66,7 @@ public:
 };
 ```
 
-### 二叉树的宽度
+## 二叉树的宽度
 
 **思路**
 - 层序遍历（队列）
@@ -96,7 +102,7 @@ public:
 };
 ```
 
-#### 二叉树最大宽度（LeetCode）
+### 二叉树最大宽度（LeetCode）
 > LeetCode - [662. 二叉树最大宽度](https://leetcode-cn.com/problems/maximum-width-of-binary-tree/description/)
 
 **问题描述**
@@ -170,7 +176,7 @@ public:
 ```
 
 
-### 二叉树中的最长路径
+## 二叉树中的最长路径
 
 **思路**
 - 基于[二叉树的深度](#二叉树的深度)
@@ -178,10 +184,10 @@ public:
 - 遍历树中每个节点的最长路径，其中最大的即为整个树的最长路径
     > 为什么最长路径不一定是经过根节点的那条路径？
 
-### 判断平衡二叉树 TODO
+## 判断平衡二叉树 TODO
 
 
-### 判断树 B 是否为树 A 的子结构 TODO
+## 判断树 B 是否为树 A 的子结构
 > [树的子结构](https://www.nowcoder.com/practice/6e196c44c7004d15b1610b9afca8bd88?tpId=13&tqId=11170&tPage=1&rp=3&ru=%2Fta%2Fcoding-interviews&qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking) - 牛客
 
 **题目描述**
@@ -223,7 +229,7 @@ public:
 ```
 
 
-### 利用前序和中序重建二叉树
+## 利用前序和中序重建二叉树
 > [重建二叉树](https://www.nowcoder.com/practice/8a19cbe657394eeaac2f6ea9b0f6fcf6?tpId=13&tqId=11157&tPage=1&rp=1&ru=%2Fta%2Fcoding-interviews&qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking) - 牛客
 
 **题目描述**
@@ -284,7 +290,7 @@ class Solution:
 ```
 
 
-### 二叉树的序列化与反序列化
+## 二叉树的序列化与反序列化
 > [序列化二叉树](https://www.nowcoder.com/practice/cf7e25aa97c04cc1a68c8f040e71fb84?tpId=13&tqId=11214&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) - NowCoder
 
 **题目描述**
@@ -357,7 +363,7 @@ public:
 };
 ```
 
-### 最近公共祖先
+## 最近公共祖先
 > 《剑指 Offer》 7.2 案例二
 
 **问题描述**
@@ -365,15 +371,15 @@ public:
 给定一棵树的根节点 root，和其中的两个节点 p1 和 p2，求它们的最小公共父节点。
 ```
 
-#### 如果树是二叉搜索树
+### 如果树是二叉搜索树
 - 找到第一个满足 `p1 < root < p2` 的根节点，即为它们的最小公共父节点；
 - 如果寻找的过程中，没有这样的 `root`，那么 `p1` 和 `p2` 的最小公共父节点必是它们之一，此时遍历到 `p1` 或 `p2` 就返回。
 
-#### 如果树的节点中保存有指向父节点的指针
+### 如果树的节点中保存有指向父节点的指针
 - 问题等价于求两个链表的**第一个公共节点**
     > [两个链表的第一个公共节点](#两个链表的第一个公共节点)
 
-#### 如果只是普通的二叉树
+### 如果只是普通的二叉树
 > [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/description/) - LeetCode
 
 - 利用两个辅助链表/数组，保存分别到 `p1` 和 `p2` 的路径；
@@ -431,7 +437,7 @@ public:
   ```
 
 
-### 获取节点的路径
+## 获取节点的路径
 **二叉树**
 ```C++
 // 未测试
@@ -489,10 +495,117 @@ bool getPath(const TreeNode* root, const TreeNode* p, deque<const TreeNode*>& pa
 }
 ```
 
+# 链表
 
-## 链表
+## 旋转链表（Rotate List）
+> LeetCode/[61. 旋转链表](https://leetcode-cn.com/problems/rotate-list/description/)
 
-### 反转链表
+**问题描述**
+```
+给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。
+
+示例 1:
+    输入: 1->2->3->4->5->NULL, k = 2
+    输出: 4->5->1->2->3->NULL
+    解释:
+    向右旋转 1 步: 5->1->2->3->4->NULL
+    向右旋转 2 步: 4->5->1->2->3->NULL
+示例 2:
+    输入: 0->1->2->NULL, k = 4
+    输出: 2->0->1->NULL
+    解释:
+    向右旋转 1 步: 2->0->1->NULL
+    向右旋转 2 步: 1->2->0->NULL
+    向右旋转 3 步: 0->1->2->NULL
+    向右旋转 4 步: 2->0->1->NULL
+```
+
+**思路**
+- 双指针 `l, r` 记录两个位置，其中 `l` 指向倒数第 `k+1` 个节点，`r` 指向最后一个非空节点；
+- 然后将 `r` 指向头结点 `h`，`h` 指向 `l` 的下一个节点，最后断开 `l` 与下一个节点；
+- 注意 `k` 可能大于链表的长度，此时可能需要遍历两次链表 
+
+**代码 1**
+- 比较直观的写法，代码量稍大
+```python
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def rotateRight(self, h, k):
+        """
+        :type h: ListNode
+        :type k: int
+        :rtype: ListNode
+        """
+        if not h or k == 0:
+            return h
+        
+        n = 1  # 记录链表的长度，因为只遍历到最后一个非空节点，所以从 1 开始
+        l = h
+        r = h  # tail
+        while r.next is not None and k > 0:
+            k -= 1
+            n += 1
+            r = r.next
+        
+        # print(k, n)
+        if k > 0:
+            k -= 1  # 这里要先减 1，因为 n 是从 1 开始计数的
+            k = k % n
+            r = h
+            while k > 0:
+                k -= 1
+                r = r.next
+        
+        # 找到倒数第 k 个节点
+        while r.next is not None:
+            l = l.next
+            r = r.next
+        
+        r.next = h
+        h = l.next
+        l.next = None
+            
+        return h
+```
+
+**代码 2**
+- 代码量少一点，但是遍历的长度要多一点。
+```python
+class Solution:
+    def rotateRight(self, h, k):
+        """
+        :type h: ListNode
+        :type k: int
+        :rtype: ListNode
+        """
+        if not h or k == 0:
+            return h
+        
+        n = 1  # 记录链表的长度，因为只遍历到最后一个非空节点，所以从 1 开始
+        r = h  # tail
+        while r.next is not None:
+            n += 1
+            r = r.next
+        
+        r.next = h  # 构成环
+        
+        k %= n 
+        t = n - k
+        while t > 0:
+            r = r.next
+            t -= 1
+        
+        h = r.next
+        r.next = None  # 断开 链表
+            
+        return h
+```
+
+## 反转链表
 > [反转链表](https://www.nowcoder.com/practice/75e878df47f24fdc9dc3e400ec6058ca?tpId=13&tqId=11168&tPage=1&rp=3&ru=%2Fta%2Fcoding-interviews&qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking) - 牛客
 
 **题目描述**
@@ -544,7 +657,7 @@ public:
 };
 ```
 
-### 合并排序链表
+## 合并排序链表
 > [合并两个排序的链表](https://www.nowcoder.com/practice/d8b6b4358f774294a89de2a6ac4d9337?tpId=13&tqId=11169&tPage=1&rp=3&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) - 牛客 
 
 **问题描述**
@@ -583,8 +696,15 @@ public:
         }
         
         // 别忘了拼接剩余部分
-        if (p1) cur->next = p1;
-        if (p2) cur->next = p2;
+        // if (p1) cur->next = p1;
+        // if (p2) cur->next = p2;
+        if (p1) {
+            cur->next = p1;
+        } else if (p2) {
+            cur->next = p2;
+        } else {
+            cur->next = nullptr;
+        }
         
         return head;
     }
@@ -610,7 +730,7 @@ public:
 };
 ```
 
-### 两个链表的第一个公共节点
+## 两个链表的第一个公共节点
 
 **思路 1**
 - 先求出两个链表的长度 `l1` 和 `l2`，然后让长的链表先走 `|l1-l2|` 步，此时两个指针距离第一个公共节点的距离相同，再走相同的步数即可在第一个公共节点相遇
@@ -674,73 +794,420 @@ public:
       return p1;
   ```
 
-### 链表排序
-> [链表排序（冒泡、选择、插入、快排、归并、希尔、堆排序）](https://www.cnblogs.com/TenosDoIt/p/3666585.html) - tenos - 博客园
+## 链表排序
+> [链表排序（冒泡、选择、插入、快排、归并、希尔、堆排序） - tenos](https://www.cnblogs.com/TenosDoIt/p/3666585.html) - 博客园 
 
-#### 插入排序 TODO
-> [147. 对链表进行插入排序](https://leetcode-cn.com/problems/insertion-sort-list/description/) - LeetCode
+### 链表快排
+> LeetCode/[148. 排序链表](https://leetcode-cn.com/problems/sort-list/description/)
 
-#### 链表快排
-> [148. 排序链表](https://leetcode-cn.com/problems/sort-list/description/) - LeetCode
+**问题描述**
+```
+在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。
+
+示例 1:
+    输入: 4->2->1->3
+    输出: 1->2->3->4
+示例 2:
+    输入: -1->5->3->4->0
+    输出: -1->0->3->4->5
+```
 
 **思路**
-- 本质上与数组快排没有区别
-- 但是因为链表本身的限制，使 `partition` 操作的方式比较单一（只能从前向后遍历）
+- 与数组快排几乎一致，只是 partition 操作需要从左向右遍历；
+- 因为涉及指针，还是用 C++ 写比较方便；
+- 另外 LeetCode 讨论区反映 Python 可能会超时；
+- **时间复杂度**：最好 `O(NlogN)`，最坏 `O(N^2)`
 
-**允许只交换节点内的值**
+**代码 1 - 只交换节点内的值**
+- 参考数组快排中的写法，这里选取**第一个元素**作为枢纽
 ```C++
 /**
-* Definition for singly-linked list.
-* struct ListNode {
-*     int val;
-*     ListNode *next;
-*     ListNode(int x) : val(x), next(NULL) {}
-* };
-*/
-
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+ 
 class Solution {
+    
     void qsort(ListNode* lo, ListNode* hi) {
-        if (lo != hi && lo->next != hi) {  // 保证半开区间 [lo, hi)
-            auto mid = partition(lo, hi);
-            qsort(lo, mid);
-            qsort(mid->next, hi);
-        }
-    }
+        if (lo == hi || lo->next == hi)  // 至少有一个元素
+            return;
 
-    ListNode* partition(ListNode* lo, ListNode* hi) {
+        auto mid = partition(lo, hi);
+        qsort(lo, mid);
+        qsort(mid->next, hi);
+    }
+    
+    ListNode* partition(ListNode* lo, ListNode* hi) {  // 链表范围为 [lo, hi)
         int key = lo->val;  // 以 low 作为枢纽
         auto mid = lo;
-        for (auto i = lo->next; i != hi; i = i->next) {
+        for (auto i=lo->next; i != hi; i = i->next) {
             if (i->val < key) {
                 mid = mid->next;
                 swap(i->val, mid->val);  // 交换节点内的值
             }
         }
-
+        
         swap(lo->val, mid->val);         // 交换 low 与 mid
-
+        
         return mid;
     }
-
+    
 public:
-    ListNode * sortList(ListNode* head) {
+    ListNode* sortList(ListNode* head) {
         if (head == nullptr || head->next == nullptr)
             return head;
-
-        qsort(head, nullptr);
+        
+        qsort(head, nullptr);  // 传入首尾区间，是一个半开区间
         return head;
     }
 };
 ```
 
-**要求交换节点** TODO
+**代码 2 - 交换节点**
+- ~~需要要重写 `swap`，而且注意，因为是链表，所以传入的节点应该是需要交换节点的前置节点~~
+- 依然选择第一个节点作为枢纽；然后把小于枢纽的节点放到一个链中，不小于枢纽的及节点放到另一个链中，最后拼接两条链以及枢纽。
+```C++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+ 
+class Solution {
+    void qsort(ListNode* pre, ListNode* lo, ListNode* hi) {  // 链表范围为 [lo, hi), pre 为 lo 的前置节点
+        if (lo == hi || lo->next == hi)  // 至少有一个元素
+            return;
+
+        auto mid = partition(pre, lo, hi);
+        qsort(pre, pre->next, mid);  // qsort(pre, lo, mid);
+        qsort(mid, mid->next, hi);
+    }
+    
+    ListNode* partition(ListNode* pre, ListNode* lo, ListNode* hi) {
+        int key = lo->val;
+        auto mid = lo;  // 不是必须的，直接使用 lo 也可以
+        
+        ListNode ll(0), rr(0);  // 创建两个新链表
+        auto l = &ll, r = &rr;  // ListNode *l = &ll, *r = &rr;
+        for (auto i=lo->next; i != hi; i = i->next) {  // i 从 lo 的下一个节点开始遍历，因为 lo 是枢纽不参与遍历
+            if (i->val < key) {
+                l = l->next = i;  // python 中不能这么写
+            } else {
+                r = r->next = i;  // python 中不能这么写
+            }
+        }
+        
+        // 拼接
+        r->next = hi;
+        l->next = mid;  // 这里的 mid 实际上就是 lo，即 l->next = lo
+        mid->next = rr.next;
+        pre->next = ll.next;
+        
+        return mid;  // 返回中枢
+    }
+    
+public:
+    ListNode* sortList(ListNode* head) {
+        if(head == nullptr || head->next == nullptr)
+            return head;
+        
+        ListNode pre(0);  // 设置一个新的头结点
+        pre.next = head;
+        qsort(&pre, head, nullptr);
+        
+        return pre.next;
+    }
+};
+```
+
+### 链表归并
+> LeetCode/[148. 排序链表](https://leetcode-cn.com/problems/sort-list/description/)
+
+**问题描述**
+```
+在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。
+
+示例 1:
+    输入: 4->2->1->3
+    输出: 1->2->3->4
+示例 2:
+    输入: -1->5->3->4->0
+    输出: -1->0->3->4->5
+```
+
+**思路**
+- 用快慢指针的方法找到链表中间节点，然后递归的对两个子链表排序，把两个排好序的子链表合并成一条有序的链表
+- 归并排序比较适合链表，它可以保证了最好和最坏时间复杂度都是 `O(NlogN)`，而且它在数组排序中广受诟病的空间复杂度在链表排序中也从O(n)降到了 `O(1)`
+    - 因为链表快排中只能使用第一个节点作为枢纽，所以不能保证时间复杂度
+- 还是使用 C++
+- **时间复杂度**：最好/最坏 `O(NlogN)`
+
+**C++**
+```C++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+ 
+class Solution {
+    ListNode* merge(ListNode *h1, ListNode *h2) {  // 排序两个链表
+        if (h1 == nullptr) return h2;
+        if (h2 == nullptr) return h1;
+        
+        ListNode* h;  // 合并后的头结点
+        if (h1->val < h2->val) {
+            h = h1;
+            h1 = h1->next;
+        } else {
+            h = h2;
+            h2 = h2->next;
+        }
+        
+        ListNode* p = h;
+        while (h1 && h2) {
+            if (h1->val < h2->val) {
+                p->next = h1;
+                h1 = h1->next;
+            } else {
+                p->next = h2;
+                h2 = h2->next;
+            }
+            p = p->next;
+        }
+        
+        if (h1) p->next = h1;
+        if (h2) p->next = h2;
+        
+        return h;
+    }
+    
+public:
+    ListNode* sortList(ListNode* h) {
+        if (h == nullptr || h->next == nullptr)
+            return h;
+        
+        auto f = h, s = h;  // 快慢指针 fast & slow
+        while (f->next && f->next->next) {
+            f = f->next->next;
+            s = s->next;
+        }
+        f = s->next;  // 中间节点
+        s->next = nullptr; // 断开
+        
+        h = sortList(h);  // 前半段排序
+        f = sortList(f);  // 后半段排序
+        
+        return merge(h, f);
+    }
+};
+```
+
+### 链表插入排序
+> LeetCode/[147. 对链表进行插入排序](https://leetcode-cn.com/problems/insertion-sort-list/description/)
+>> 注意：以下代码在[148. 排序链表](https://leetcode-cn.com/problems/sort-list/description/)也能 AC（要求时间复杂度 `O(NlogN)`）
+
+**问题描述**
+```
+对链表进行插入排序。
+
+插入排序是迭代的，每次只移动一个元素，直到所有元素可以形成一个有序的输出列表。
+每次迭代中，插入排序只从输入数据中移除一个待排序的元素，找到它在序列中适当的位置，并将其插入。
+重复直到所有输入数据插入完为止。
+
+示例 1：
+    输入: 4->2->1->3
+    输出: 1->2->3->4
+示例 2：
+    输入: -1->5->3->4->0
+    输出: -1->0->3->4->5
+```
+
+<div align="center"><img src="../_assets/Insertion-sort-example-300px.gif" height="" /></div>
+
+- 插入排序的动画演示如上。从第一个元素开始，该链表可以被认为已经部分排序（用黑色表示）。
+每次迭代时，从输入数据中移除一个元素（用红色表示），并原地将其插入到已排好序的链表中。
+
+**思路**
+- 见代码注释
+- **时间复杂度**：最好/最坏 `O(N^2)`
+
+**代码 1 - 非原地**
+- 实际上，对链表来说，不存在是否原地的问题，不像数组
+- 这里所谓的非原地是相对数组而言的，因此下面的代码只针对链表，不适用于数组。
+```C++
+class Solution {
+public:
+    ListNode* insertionSortList(ListNode* h) {
+        if (h == nullptr || h->next == nullptr)
+            return h;
+        
+        // 因为是链表，所以可以重新开一个新的链表来保存排序好的部分；
+        // 不存在空间上的问题，这一点不像数组
+        auto H = new ListNode(0);
+        
+        auto pre = H;
+        auto cur = h;
+        ListNode* nxt;
+        while (cur) {
+            while (pre->next && pre->next->val < cur->val) {
+                pre = pre->next;
+            }
+            
+            nxt = cur->next;  // 记录下一个要遍历的节点
+            // 把 cur 插入 pre 和 pre->next 之间
+            cur->next = pre->next;
+            pre->next = cur;
+            
+            // 重新下一轮
+            pre = H;
+            cur = nxt;
+        }
+        
+        h = H->next;
+        delete H;
+        return h;
+    }
+};
+```
+
+**代码 2 - 原地**
+- 即不使用新链表，逻辑与数组一致；
+- 此时链表拼接的逻辑会复杂一些
+```C++
+class Solution {
+public:
+    ListNode* insertionSortList(ListNode* h) {
+        if (h == nullptr || h->next == nullptr)
+            return h;
+        
+        auto beg = new ListNode(0);
+        beg->next = h;
+        auto end = h;   // (beg, end] 指示排好序的部分
+        
+        auto p = h->next;  // 当前待排序的节点
+        while (p) {
+            auto pre = beg;
+            auto cur = beg->next;  // p 将插入到 pre 和 cur 之间
+            while (cur != p && p->val >= cur->val) {
+                cur = cur->next;
+                pre = pre->next;
+            }
+            
+            if (cur == p) {
+                end = p;
+            } else {
+                end->next = p->next;
+                p->next = cur;
+                pre->next = p;
+            }
+            p = end->next;
+        }
+        
+        h = beg->next;
+        delete beg;
+        return h;
+    }
+};
+```
+
+### 链表选择排序
+> LeetCode/[147. 对链表进行插入排序](https://leetcode-cn.com/problems/insertion-sort-list/description/)
+>> 注意：以下代码在[148. 排序链表](https://leetcode-cn.com/problems/sort-list/description/)也能 AC（要求时间复杂度 `O(NlogN)`）
+
+**思路**
+- 见代码注释
+- **时间复杂度**：最好/最坏 `O(N^2)`
+
+**C++**
+```C++
+class Solution {
+public:
+    ListNode* sortList(ListNode* h) {
+        if (h == nullptr || h->next == nullptr)
+            return h;
+        
+        auto H = new ListNode(0);  // 为了操作方便，添加一个头结点
+        H->next = h;
+        
+        auto s = h;  // 指向已经排好序的尾部
+        ListNode* m;  // 指向未排序部分的最小节点 min
+        ListNode* p;  // 迭代器
+        while (s->next) {
+            m = s;
+            p = s->next;
+            while (p) {  // 寻找剩余部分的最小节点
+                if (p->val < m->val)
+                    m = p;
+                p = p->next;
+            }
+            
+            swap(s->val, m->val);  // 交换节点内的值
+            s = s->next;
+        }
+        
+        h = H->next;
+        delete H;
+        return h;
+    }
+};
+```
+
+### 链表冒泡排序
+> LeetCode/[147. 对链表进行插入排序](https://leetcode-cn.com/problems/insertion-sort-list/description/)
+
+**思路**
+- 见代码注释
+- **时间复杂度**：最好 `O(N)`，最坏 `O(N^2)`
+
+**C++**
+- 以下代码不能 AC [148. 排序链表](https://leetcode-cn.com/problems/sort-list/description/)
+```C++
+class Solution {
+public:
+    ListNode* insertionSortList(ListNode* h) {
+        if (h == nullptr || h->next == nullptr)
+            return h;
+        
+        ListNode* q = nullptr;  // 开始时指向尾节点
+        ListNode* p;  // 迭代器
+        bool changed = true;
+        while (q != h->next && changed) {
+            changed = false;
+            p = h;
+            
+            // 把大的元素“冒泡”到尾部去
+            while (p->next && p->next != p) {
+                if (p->val > p->next->val) {  // 如果已经有序，则退出循环
+                    swap(p->val, p->next->val);
+                    changed = true;
+                }
+                p = p->next;
+            }
+            q = p;
+        }
+        
+        return h;
+    }
+};
+```
 
 
-## 二维数组
+# 二维数组
 
-### 二分查找
+## 二分查找
 
-#### 搜索二维矩阵 1
+### 搜索二维矩阵 1
 > LeetCode - [74. 搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix/description/)
 
 **问题描述**
@@ -792,7 +1259,7 @@ public:
 };
 ```
 
-#### 搜索二维矩阵 2
+### 搜索二维矩阵 2
 > LeetCode - [240. 搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/description/)
 
 **思路**
@@ -826,21 +1293,21 @@ public:
 };
 ```
 
-### 打印二维数组
+## 打印二维数组
 
-#### 回形打印
+### 回形打印
 
-#### 蛇形打印
-
-
-## 堆
-
-### 堆的调整（自上而下）
+### 蛇形打印
 
 
-## 栈
+# 堆
 
-### 用两个栈模拟队列
+## 堆的调整（自上而下）
+
+
+# 栈
+
+## 用两个栈模拟队列
 > [用两个栈实现队列](https://www.nowcoder.com/practice/54275ddae22f475981afa2244dd448c6?tpId=13&tqId=11158&tPage=1&rp=1&ru=%2Fta%2Fcoding-interviews&qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking) - 牛客
 
 **题目描述**
